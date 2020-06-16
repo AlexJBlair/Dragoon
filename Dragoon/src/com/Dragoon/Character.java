@@ -20,6 +20,7 @@ public class Character {
     protected int wisdom;
     protected int charisma;
 
+    // Needs implementation
     // Minor stats
     protected int acrobatics;
     protected int animalHandling;
@@ -40,6 +41,8 @@ public class Character {
     protected int stealth;
     protected int survival;
 
+
+    // Get Major stats and characteristics
     public String getName() {return name;}
     public String getRace(){return race;}
     public String getCharacterClass(){return characterClass;}
@@ -50,6 +53,7 @@ public class Character {
     public int getProficiency(){return proficiency;}
     public int getExpThreshold(){return expThreshold;}
 
+    // Set Major stats and characteristics
     public void setName(String nme){name = nme;}
     public void setRace(String Rce){race = Rce;}
     public void setCharacterClass(String charClass){characterClass = charClass;}
@@ -65,14 +69,15 @@ public class Character {
     public void levelUp(int newHP, int newEXP)
     {
         if(experiencePoints >= expThreshold) {
-            maxHP = newHP;
-            experiencePoints = newEXP;
+            setMaxHP(newHP);
+            setExperiencePoints(newEXP);
             level++;
         }
         else
             System.out.print("You cannot level up yet.");
     }
 
+    // Call this to display all the character details. Also add to this if new details are added
     public void listCharacterDetails()
     {
         System.out.print("=========================================================" + "\n");

@@ -1,7 +1,7 @@
 package com.Dragoon;
 
 public class CharacterFactory {
-    protected int numOfCharacters;
+    protected int numOfCharacters = 0;
 
     void instanciateCharacter(int num)
     {

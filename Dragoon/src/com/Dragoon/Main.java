@@ -11,12 +11,10 @@ package com.Dragoon;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-       // System.out.println("Hello Java");
 
         Utility utilFunctions = new Utility();
 
-        utilFunctions.readInput();
+        //utilFunctions.readInput();
 
         // Character calls
 //        Character Alex = new Character("Magni", "Dwarf", "Paladin", 6,0,
@@ -24,13 +22,15 @@ public class Main {
 //        Alex.listCharacterDetails();
 //        CharacterSheet characterSheet = new CharacterSheet();
 //
-//        // Inventory calls
-//        Inventory bagOfHolding = new Inventory();
-//        bagOfHolding.addToInventory("Sword of smite");
-//        bagOfHolding.addToInventory("Shield of Zeus");
-//        bagOfHolding.addToInventory("Plate of the Gods");
-//        bagOfHolding.sortInventoryAlphabetically();
-//        bagOfHolding.listInventory();
+        // Inventory calls
+        Inventory bagOfHolding = new Inventory();
+        bagOfHolding.addToInventory("Sword of smite");
+        bagOfHolding.addToInventory("Shield of Zeus");
+        bagOfHolding.addToInventory("Plate of the Gods");
+        bagOfHolding.sortInventoryAlphabetically();
+        bagOfHolding.listInventory();
+        bagOfHolding.removeFromInventory("Sword of smite");
+        bagOfHolding.listInventory();
 
 
     }
