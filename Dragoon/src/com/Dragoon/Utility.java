@@ -1,6 +1,7 @@
 package com.Dragoon;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Utility {
@@ -9,30 +10,38 @@ public class Utility {
     String input;
     ArrayList<String> inputStorage = new ArrayList<>();
 
+
+
     void readInput()
     {
-        System.out.print("Please enter the following information for the character that you would like to create.\n"
-        +"Name, Race, Class, Level, Current Exp, Armor Class, HP, Proficiency Number, Strength, Dexterity, Constitution,"
-        + "Intelligence, Wisdom, Charisma\n");
+        int numberOfInputs = 0;
+        int maxParams = 14;
         Scanner scan = new Scanner(System.in);
         try {
-            while (scan.hasNextLine()) {
+            while (scan.hasNextLine() && numberOfInputs != maxParams) {
                 input = scan.nextLine();
-
                 inputStorage.add(input);
+                numberOfInputs++;
             }
         } finally {
             scan.close();
         }
 
         // This is for testing this method
-        System.out.println(input);
+        System.out.println(input + " was just entered.");
     }
 
-    void assignInputToParams()
-    {
-        for (int i = 0; i < inputStorage.size(); i++)
-        {
-        }
-    }
+    // TODO: Finish this
+//    void assignInputToParams()
+//    {
+//        int totalParams = 14;
+//
+//        for (int i = 0; i < inputStorage.size(); i++)
+//        {
+//            for (int j = 0; j < totalParams; j++)
+//            {
+//
+//            }
+//        }
+//    }
 }

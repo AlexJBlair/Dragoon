@@ -10,6 +10,8 @@ public class CharacterSheet {
     private JPanel MainPanel;
     private JLabel StatTitle;
     private JLabel CharacterInfoTitle;
+    private JList Inventory;
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }

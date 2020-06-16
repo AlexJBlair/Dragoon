@@ -36,6 +36,17 @@
           <text value="Character Info"/>
         </properties>
       </component>
+      <component id="c3e77" class="javax.swing.JList" binding="Inventory">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <model/>
+          <toolTipText value="Inventory for your character"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
