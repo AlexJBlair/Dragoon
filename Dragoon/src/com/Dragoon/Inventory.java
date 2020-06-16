@@ -20,14 +20,14 @@ public class Inventory {
         System.out.print("=========================================================" + "\n");
     }
 
-    public String getItemName()
-    {
-        String name;
+    //public String getItemName()
+   // {
+       // String name;
         // Add a scanner or use the scanner that is created to read an item then place it in name var
-        return name;
-    }
+        //return name;
+    //}
 
-
+    // Adds items to the inventory
     public void addToInventory(String itemName)
     {
         inventory.add(itemName);
