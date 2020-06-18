@@ -5,13 +5,12 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Utility {
-
     // Utility for reading input from the CMD
     String input;
     ArrayList<String> inputStorage = new ArrayList<>();
 
-
-
+    // Reading inputs is now being taken care of during class creation
+    // This can still be used for modifying characters after they are created
     void readInput()
     {
         int numberOfInputs = 0;
@@ -21,6 +20,7 @@ public class Utility {
             while (scan.hasNextLine() && numberOfInputs != maxParams) {
                 input = scan.nextLine();
                 inputStorage.add(input);
+                System.out.println(input);
                 numberOfInputs++;
             }
         } finally {

@@ -23,9 +23,6 @@ public class Main {
 //                15,57,3,5, 5,5,5,5,5);
 //        Alex.listCharacterDetails();
 
-        Utility utilFunctions = new Utility();
-        utilFunctions.readInput();
-
         // Inventory calls
         Inventory bagOfHolding = new Inventory();
         bagOfHolding.addToInventory("Sword of smite");

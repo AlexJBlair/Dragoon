@@ -5,9 +5,10 @@ public class CharacterFactory {
 
     public void promptForCharacterCreation()
     {
-        System.out.print("Please enter the following information for the character that you would like to create.\n"
-                +"Name, Race, Class, Level, Current Exp, Armor Class, HP, Proficiency Number, Strength, Dexterity, Constitution,"
-                + "Intelligence, Wisdom, Charisma\n");
+        Character character = new Character(true);
+        MajorStats majorStats = new MajorStats(true);
+        character.setMajorStats(majorStats);
+        character.listCharacterDetails();
     }
 
     void makeCharacter(int num)
