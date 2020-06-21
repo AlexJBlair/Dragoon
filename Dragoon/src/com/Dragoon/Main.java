@@ -12,10 +12,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        CharacterSheet characterSheet = new CharacterSheet();
+
+        characterSheet.createStatsTable("Statistics");
+        characterSheet.addStatToTable("Strength", 55);
+        characterSheet.createInfoTable("Info");
+        characterSheet.addInfoToTable("Sword", "Stabby Stabby");
+
+        
         CharacterFactory characterFactory = new CharacterFactory();
         characterFactory.promptForCharacterCreation();
-
-        CharacterSheet characterSheet = new CharacterSheet();
 
 //         Call the class constructor for character to test internal functions....
 //         Otherwise use the prompt function above to create a new character
