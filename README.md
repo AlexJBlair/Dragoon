@@ -1,6 +1,6 @@
 # Dragoon
 
-Authors: Alex Blair, Preston Stephens
+Authors: Alex Blair, Preston Stephens, Eben Schumann
 Version: 0.0.1
 
 Dragoon is a Dungeons and Dragons character sheet and inventory management software. This software is small at the moment, but the hope is that anyone can pick up this software and have a way to record one's character stats and inventory with an easy to use system.
