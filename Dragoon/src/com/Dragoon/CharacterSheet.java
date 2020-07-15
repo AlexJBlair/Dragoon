@@ -1,10 +1,12 @@
 package com.Dragoon;
 
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.*;
@@ -26,10 +28,19 @@ public class CharacterSheet {
     {
 
         mainFrame = new JFrame("Dragoon");
-        mainFrame.setSize(1000,400);
-        mainFrame.setLayout(new GridLayout(1, 2));
 
-        mainFrame.setLayout(new FlowLayout());
+        JScrollPane scrollPane = null;
+        try{
+            scrollPane = new JScrollPane(new JLabel(new ImageIcon(ImageIO.read(new File("character_sheet.jpg")))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        mainFrame.add(scrollPane, BorderLayout.CENTER);
+        mainFrame.pack();
+
+
+        mainFrame.setLayout(new GridLayout(1, 2));
         mainFrame.setVisible(true);
     }
 
