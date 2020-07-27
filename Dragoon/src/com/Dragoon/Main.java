@@ -19,7 +19,7 @@ public class Main {
         characterSheet.createInfoTable("Info");
         characterSheet.addInfoToTable("Sword", "Stabby Stabby");
 
-        
+
         CharacterFactory characterFactory = new CharacterFactory();
         characterFactory.promptForCharacterCreation();
 
@@ -38,7 +38,6 @@ public class Main {
         bagOfHolding.listInventory();
         bagOfHolding.removeFromInventory("Sword of smite");
         bagOfHolding.listInventory();
-
 
     }
 }
