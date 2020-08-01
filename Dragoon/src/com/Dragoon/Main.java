@@ -14,12 +14,6 @@ public class Main {
 
         CharacterSheet characterSheet = new CharacterSheet();
 
-        characterSheet.createStatsTable("Statistics");
-        characterSheet.addStatToTable("Strength", 55);
-        characterSheet.createInfoTable("Info");
-        characterSheet.addInfoToTable("Sword", "Stabby Stabby");
-
-
         CharacterFactory characterFactory = new CharacterFactory();
         characterFactory.promptForCharacterCreation();
 

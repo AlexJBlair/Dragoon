@@ -8,17 +8,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
+
 
 public class CharacterSheet {
-    private JFrame mainFrame;
-    public JScrollPane statsScrollPane;
-    public JScrollPane infoScrollPane;
-    public JTable statsTable;
-    public JTable infoTable;
-    public DefaultTableModel statsTableModel;
-    public DefaultTableModel infoTableModel;
 
     public CharacterSheet(){
         prepareGUI();
@@ -26,81 +21,145 @@ public class CharacterSheet {
 
     private void prepareGUI()
     {
+        // Main Window
+        JFrame frame = new JFrame("Dragoon");
 
-        mainFrame = new JFrame("Dragoon");
+        JPanel pane = new JPanel();
+        pane.setLayout(new GridBagLayout());
+        new GridBagLayout();
 
-        JScrollPane scrollPane = null;
-        try{
-            scrollPane = new JScrollPane(new JLabel(new ImageIcon(ImageIO.read(new File("character_sheet.jpg")))));
-        } catch (IOException e) {
-            e.printStackTrace();
+        GridBagConstraints c = new GridBagConstraints();
+
+        // Left aligned table
+
+        String selections[][] = {
+                {"these"},
+                {"will"},
+                {"be"},
+                {"the"},
+                {"types"},
+                {"of"},
+                {"stuff"},
+                {"you"},
+                {"can"},
+                {"change"}
+        };
+        String col_label[] = {"Options"};
+        JTable left_column_table = new JTable(selections, col_label);
+        Font font = new Font("TimesRoman", Font.BOLD, 24);
+        for(int i=0; i<selections.length; i++)
+        {
+            left_column_table.setRowHeight(i, 40);
+            left_column_table.setFont(font);
         }
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        mainFrame.add(scrollPane, BorderLayout.CENTER);
-        mainFrame.pack();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = 700;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.gridheight = 10;
+        c.weighty = 10;
+        c.weightx = 2;
+        pane.add(left_column_table, c);
 
 
-        mainFrame.setLayout(new GridLayout(1, 2));
-        mainFrame.setVisible(true);
+        // First Upper Right table
+
+        String stat_values[][] = {
+                {"these"},
+                {"will"},
+                {"be"},
+                {"the"},
+                {"values"},
+                {"of"},
+                {"unique"},
+                {"things"},
+                {"that"},
+                {"you"},
+                {"can"},
+                {"modify"}
+        };
+        String stat_col_label[] = {"Options"};
+        JTable upper_right_stats_table = new JTable(stat_values, stat_col_label);
+        font = new Font("TimesRoman", Font.PLAIN, 18);
+        for(int i=0; i<stat_values.length; i++)
+        {
+            upper_right_stats_table.setRowHeight(i, 20);
+            upper_right_stats_table.setFont(font);
+        }
+        c.ipady = (int) (700 * 0.8);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 2;
+        c.gridy = 0;
+        c.gridwidth = 1;
+        c.gridheight = 8;
+        c.weighty = 8;
+        c.weightx = 1;
+        pane.add(upper_right_stats_table, c);
+
+
+        // Second Upper Right table
+
+        String stat_names[][] = {
+                {"these"},
+                {"will"},
+                {"be"},
+                {"the"},
+                {"name and short description"},
+                {"of"},
+                {"unique"},
+                {"things"},
+                {"that"},
+                {"you"},
+                {"can"},
+                {"modify"}
+        };
+        String stat_names_col_label[] = {"Options"};
+        JTable upper_right_names_table = new JTable(stat_names, stat_names_col_label);
+        font = new Font("TimesRoman", Font.PLAIN, 18);
+        for(int i=0; i<stat_names.length; i++)
+        {
+            upper_right_names_table.setRowHeight(i, 20);
+            upper_right_names_table.setFont(font);
+        }
+        c.ipady = (int) (700 * 0.8);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 3;
+        c.gridy = 0;
+        c.gridwidth = 7;
+        c.gridheight = 8;
+        c.weighty = 8;
+        c.weightx = 7;
+        pane.add(upper_right_names_table, c);
+
+
+
+        // Lower right table
+        String text = "This will be an in depth description of the stat you might want to modify.";
+        text += " also maybe just a general status/info pane idk...";
+        JTextField lower_right_text = new JTextField(text);
+        font = new Font("TimesRoman", Font.PLAIN, 12);
+        lower_right_text.setFont(font);
+
+        c.ipady = (int) (700 * 0.2);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 2;
+        c.gridy = 8;
+        c.gridwidth = 8;
+        c.gridheight = 2;
+        c.weighty = 2;
+        c.weightx = 9;
+        pane.add(lower_right_text, c);
+
+
+        frame.add(pane);
+        frame.setSize(700, 500);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
     }
 
-    public void createStatsTable(String Title)
-    {
-        statsTableModel = new DefaultTableModel();
-        statsTableModel.addColumn("Stat");
-        statsTableModel.addColumn("Value");
-        statsTable = new JTable(statsTableModel);
-        statsTable.getColumnModel().getColumn(1).setWidth(10);
-
-        statsScrollPane = new JScrollPane(statsTable);
-        statsScrollPane.setBorder(
-            BorderFactory.createTitledBorder
-                (
-                    BorderFactory.createEtchedBorder(),
-                    Title,
-                    TitledBorder.CENTER,
-                    TitledBorder.TOP
-                )
-        );
-        statsScrollPane.setSize(150, 300);
-        mainFrame.add(statsScrollPane, JFrame.LEFT_ALIGNMENT);
-        mainFrame.setVisible(true);
-    }
-
-    public void addStatToTable(String stat, int value)
-    {
-        DefaultTableModel model = (DefaultTableModel) statsTable.getModel();
-        model.addRow(new Object[]{stat, Integer.toString(value)});
-    }
-
-    public void createInfoTable(String Title)
-    {
-        infoTableModel = new DefaultTableModel();
-        infoTable = new JTable(infoTableModel);
-        infoTableModel.addColumn("Label");
-        infoTableModel.addColumn("Description");
-
-        infoScrollPane = new JScrollPane(infoTable);
-        infoScrollPane.setBorder(
-                BorderFactory.createTitledBorder
-                        (
-                                BorderFactory.createEtchedBorder(),
-                                Title,
-                                TitledBorder.CENTER,
-                                TitledBorder.TOP
-                        )
-        );
-        infoScrollPane.setSize(300, 300);
-        infoTable.setFillsViewportHeight(true);
-        mainFrame.add(infoScrollPane);
-        mainFrame.setVisible(true);
-    }
-
-    public void addInfoToTable(String label, String description)
-    {
-        DefaultTableModel model = (DefaultTableModel) infoTable.getModel();
-        model.addRow(new Object[]{label, description});
-    }
 }
 
 
